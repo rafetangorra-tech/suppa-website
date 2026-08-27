@@ -129,6 +129,7 @@
 
   <p class="hint">
     <b>drag</b> or <b>← →</b> to move — kisses fire themselves. Dodge the flashes.
+    <em>Drama Queen</em> plays when you do.
     <button id="mute" aria-label="Toggle sound">sound: on</button>
   </p>
 
@@ -171,9 +172,18 @@
       hit: function () { beep(140, 0.3, 'sawtooth', 0.08, -80); },
       wave: function () { beep(440, 0.1, 'square', 0.04); setTimeout(function () { beep(660, 0.1, 'square', 0.04); }, 90); setTimeout(function () { beep(880, 0.14, 'square', 0.04); }, 180); },
     };
+    /* the single itself plays behind the game */
+    var bgm = new Audio('assets/drama-queen.m4a');
+    bgm.loop = true;
+    bgm.volume = 0.55;
+    bgm.preload = 'auto';
+    var bgmStarted = false;
+    window.__pp = { bgm: bgm }; // debug/tuning handle
+
     var muteBtn = document.getElementById('mute');
     muteBtn.addEventListener('click', function () {
       muted = !muted;
+      bgm.muted = muted;
       muteBtn.textContent = 'sound: ' + (muted ? 'off' : 'on');
     });
     window.addEventListener('keydown', function (e) { if (e.key === 'm' || e.key === 'M') muteBtn.click(); });
@@ -242,13 +252,20 @@
     window.addEventListener('pointerup', function () { dragging = false; });
 
     function advance() {
-      if (STATE === 'title') { reset(); STATE = 'playing'; }
-      else if (STATE === 'over') { reset(); STATE = 'playing'; }
+      if (STATE === 'title' || STATE === 'over') {
+        reset(); STATE = 'playing';
+        /* first tap doubles as the autoplay gesture */
+        bgm.play().then(function () { bgmStarted = true; }).catch(function () {});
+      }
     }
 
     document.addEventListener('visibilitychange', function () {
       paused = document.hidden;
       last = performance.now();
+      if (bgmStarted) {
+        if (paused) bgm.pause();
+        else bgm.play().catch(function () {});
+      }
     });
 
     /* ---------- update ---------- */
