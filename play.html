@@ -173,18 +173,17 @@
       hit: function () { beep(140, 0.3, 'sawtooth', 0.08, -80); },
       wave: function () { beep(440, 0.1, 'square', 0.04); setTimeout(function () { beep(660, 0.1, 'square', 0.04); }, 90); setTimeout(function () { beep(880, 0.14, 'square', 0.04); }, 180); },
     };
-    /* the single itself plays behind the game */
-    var bgm = new Audio('assets/drama-queen.m4a');
-    bgm.loop = true;
-    bgm.volume = 0.55;
-    bgm.preload = 'auto';
+    /* the single behind the game — parked for now; flip to true at release */
+    var BGM_ENABLED = false;
+    var bgm = BGM_ENABLED ? new Audio('assets/drama-queen.m4a') : null;
+    if (bgm) { bgm.loop = true; bgm.volume = 0.55; bgm.preload = 'auto'; }
     var bgmStarted = false;
     window.__pp = { bgm: bgm }; // debug/tuning handle
 
     var muteBtn = document.getElementById('mute');
     muteBtn.addEventListener('click', function () {
       muted = !muted;
-      bgm.muted = muted;
+      if (bgm) bgm.muted = muted;
       muteBtn.textContent = 'sound: ' + (muted ? 'off' : 'on');
     });
     window.addEventListener('keydown', function (e) { if (e.key === 'm' || e.key === 'M') muteBtn.click(); });
@@ -256,7 +255,7 @@
       if (STATE === 'title' || STATE === 'over') {
         reset(); STATE = 'playing';
         /* first tap doubles as the autoplay gesture */
-        bgm.play().then(function () { bgmStarted = true; }).catch(function () {});
+        if (bgm) bgm.play().then(function () { bgmStarted = true; }).catch(function () {});
       }
     }
 
