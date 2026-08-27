@@ -5,18 +5,18 @@
  * ------------------------------------------------------------------ */
 
 :root {
-  --canvas: #0b0b0d;          /* the dark stage */
-  --oxblood: #170907;         /* the single's world */
+  --canvas: #0b0b0d;          /* the black stage */
+  --plum: #12070d;            /* the single's world — pink-tinged black */
   --panel: #101013;           /* photos */
   --text: #f2f2f4;
-  --muted: #9a9aa2;
-  --red: #e8432d;             /* the jumpsuit red */
-  --chrome-hi: #ffffff;
-  --chrome-mid: #b9bcc4;
-  --chrome-lo: #63666e;
+  --muted: #a09aa4;
+  --pink: #ff4fa3;            /* hot pink — the display voice */
+  --mint: #a8f0c6;            /* new-age mint — the accent voice */
   --font-display: "Unbounded", "Arial Black", sans-serif;
   --font-sans: "Archivo", system-ui, -apple-system, sans-serif;
 }
+
+::selection { background: var(--mint); color: #0b0b0d; }
 
 *, *::before, *::after { box-sizing: border-box; }
 
@@ -45,17 +45,12 @@ html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-smooth { scroll-behavior: auto !important; }
 .lenis.lenis-stopped { overflow: hidden; }
 
-/* chrome text — echoing the cover lettering */
-.chrome-text,
-.nav__logo,
-#wordmark span {
-  background: linear-gradient(180deg,
-    var(--chrome-hi) 0%, var(--chrome-mid) 35%,
-    var(--chrome-lo) 50%, var(--chrome-mid) 62%,
-    var(--chrome-hi) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+/* display voice: solid hot pink on black — no gradients in the type */
+#wordmark span,
+.single__copy h2,
+.photos__head h2,
+#about h2 {
+  color: var(--pink);
 }
 
 /* ---- Reveal system ----
@@ -86,7 +81,7 @@ html.lenis, html.lenis body { height: auto; }
   height: 3px; width: 100%;
   transform-origin: left;
   transform: scaleX(0);
-  background: linear-gradient(90deg, #8d9098, #e8eaee 45%, var(--red));
+  background: linear-gradient(90deg, var(--pink), var(--mint));
 }
 
 /* ---------- nav ---------- */
@@ -105,6 +100,7 @@ html.lenis, html.lenis body { height: auto; }
   font-size: 1.05rem;
   letter-spacing: 0.28em;
   text-decoration: none;
+  color: #fff; /* difference blend re-colors it per section */
 }
 
 .nav__links { display: flex; align-items: center; gap: clamp(0.9rem, 2.5vw, 1.6rem); }
@@ -147,7 +143,7 @@ html.lenis, html.lenis body { height: auto; }
   align-items: center; justify-content: center;
   overflow: hidden;
   background:
-    radial-gradient(55% 45% at 50% 62%, rgba(232, 67, 45, 0.14), transparent 70%),
+    radial-gradient(55% 45% at 50% 62%, rgba(255, 79, 163, 0.14), transparent 70%),
     var(--canvas);
 }
 
@@ -155,7 +151,7 @@ html.lenis, html.lenis body { height: auto; }
   position: absolute; top: clamp(4.5rem, 10vh, 6.5rem);
   margin: 0;
   font-size: 0.72rem; letter-spacing: 0.45em; text-transform: uppercase;
-  color: var(--muted);
+  color: var(--mint);
 }
 
 #wordmark {
@@ -184,7 +180,7 @@ html.lenis, html.lenis body { height: auto; }
   box-shadow:
     0 30px 90px rgba(0, 0, 0, 0.6),
     0 0 0 1px #26262b,
-    0 0 140px rgba(232, 67, 45, 0.14);
+    0 0 140px rgba(255, 79, 163, 0.16);
 }
 
 .intro__tagline {
@@ -226,14 +222,14 @@ html.lenis, html.lenis body { height: auto; }
   display: flex; align-items: center;
   overflow: hidden;
   padding: clamp(5rem, 10vh, 7rem) clamp(1.2rem, 5vw, 3rem);
-  background: var(--oxblood);
+  background: var(--plum);
 }
 
 #single .glow {
   position: absolute; inset: 0; pointer-events: none;
   background:
-    radial-gradient(60% 60% at 74% 30%, rgba(232, 67, 45, 0.22), transparent 70%),
-    radial-gradient(50% 50% at 16% 84%, rgba(232, 67, 45, 0.12), transparent 70%);
+    radial-gradient(60% 60% at 74% 30%, rgba(255, 79, 163, 0.20), transparent 70%),
+    radial-gradient(50% 50% at 16% 84%, rgba(168, 240, 198, 0.10), transparent 70%);
 }
 
 .single__grid {
@@ -247,7 +243,7 @@ html.lenis, html.lenis body { height: auto; }
 
 .single__copy [data-wtext="label"] {
   margin: 0 0 1.1rem;
-  color: var(--red);
+  color: var(--mint);
   font-size: 0.72rem; font-weight: 700;
   letter-spacing: 0.4em; text-transform: uppercase;
 }
@@ -270,7 +266,7 @@ html.lenis, html.lenis body { height: auto; }
 .btn-drip {
   position: relative; isolation: isolate; overflow: hidden;
   display: inline-block;
-  border: 1px solid rgba(232, 67, 45, 0.5);
+  border: 1px solid rgba(255, 79, 163, 0.55);
   border-radius: 999px;
   padding: 0.75rem 1.6rem;
   color: var(--text);
@@ -282,7 +278,7 @@ html.lenis, html.lenis body { height: auto; }
 .btn-drip::before {
   content: "";
   position: absolute; inset: 0; z-index: -1;
-  background: var(--drip, var(--red));
+  background: var(--drip, var(--pink));
   transform: translateY(-101%);
   transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -292,7 +288,7 @@ html.lenis, html.lenis body { height: auto; }
 .single__embed {
   margin-top: 2rem;
   max-width: 30rem;
-  border: 1px dashed rgba(255, 255, 255, 0.16);
+  border: 1px dashed rgba(168, 240, 198, 0.35);
   border-radius: 12px;
   padding: 1.1rem 1.3rem;
   color: var(--muted);
@@ -350,7 +346,7 @@ html.lenis, html.lenis body { height: auto; }
 
 .photos__eyebrow {
   margin: 0 0 1rem;
-  color: var(--red);
+  color: var(--mint);
   font-size: 0.72rem; font-weight: 700;
   letter-spacing: 0.4em; text-transform: uppercase;
 }
@@ -394,7 +390,7 @@ html.lenis, html.lenis body { height: auto; }
 
 .about__eyebrow {
   margin: 0 0 1rem;
-  color: var(--red);
+  color: var(--mint);
   font-size: 0.72rem; font-weight: 700;
   letter-spacing: 0.4em; text-transform: uppercase;
 }
@@ -414,8 +410,8 @@ html.lenis, html.lenis body { height: auto; }
 #booking {
   position: relative;
   overflow: hidden;
-  background: var(--red);
-  color: #fff;
+  background: var(--pink);
+  color: #0b0b0d;
   text-align: center;
   padding: clamp(6rem, 14vh, 9rem) 1.5rem 2rem;
 }
@@ -426,7 +422,7 @@ html.lenis, html.lenis body { height: auto; }
   margin: 0 0 1.4rem;
   font-size: 0.72rem; font-weight: 700;
   letter-spacing: 0.4em; text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.65);
+  color: rgba(11, 11, 13, 0.6);
 }
 
 #booking h2 {
@@ -435,11 +431,11 @@ html.lenis, html.lenis body { height: auto; }
   text-transform: uppercase;
 }
 
-.booking__blurb { margin: 1.4rem auto 2.2rem; max-width: 26rem; color: rgba(255, 255, 255, 0.75); }
+.booking__blurb { margin: 1.4rem auto 2.2rem; max-width: 26rem; color: rgba(11, 11, 13, 0.7); }
 
 .booking__mail {
-  border-color: rgba(255, 255, 255, 0.65);
-  color: #fff;
+  border-color: rgba(11, 11, 13, 0.6);
+  color: #0b0b0d;
   font-size: 0.9rem;
   text-transform: none;
   letter-spacing: 0.06em;
@@ -450,17 +446,17 @@ html.lenis, html.lenis body { height: auto; }
   margin-top: 2.4rem;
 }
 .booking__socials a {
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(11, 11, 13, 0.7);
   text-decoration: none;
   font-size: 0.78rem; letter-spacing: 0.22em; text-transform: uppercase;
 }
-.booking__socials a:hover { color: #fff; }
+.booking__socials a:hover { color: #0b0b0d; }
 
 .booking__fine {
   position: relative; z-index: 10;
   margin: clamp(3.5rem, 8vh, 5rem) 0 0;
   font-size: 0.72rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(11, 11, 13, 0.5);
 }
 
 /* ---------- reduced motion ---------- */
