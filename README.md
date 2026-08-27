@@ -37,6 +37,16 @@ Living media degrades gracefully: every video sits over its own poster still,
 loads lazily (`data-src`), and removes itself on error — no JS, reduced
 motion, or a missing file all fall back to the photograph.
 
+## The arcade
+
+`play.html` — **Paparazzi Panic**, the Drama Queen arcade: a fixed-shooter
+in the classic mold, re-themed to the single's fame-satire. Drag (or arrow
+keys) to steer the crown down the red carpet; kisses auto-fire at descending
+ranks of paparazzi cameras while their flashbulbs rain down. Escalating
+waves, three hearts, local best score, synth SFX (M to mute), touch-first.
+All art is code-drawn canvas; no assets, no dependencies. Linked from the
+main nav as "Play".
+
 ## Before going live
 
 Search `index.html` for `TODO`:
