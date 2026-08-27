@@ -286,6 +286,25 @@ html.lenis, html.lenis body { height: auto; }
 .btn-drip:hover { color: var(--drip-ink, #fff) !important; }
 .btn-drip:hover::before { transform: translateY(0); }
 
+.soon-pill {
+  display: inline-block;
+  border: 1px dashed rgba(255, 79, 163, 0.5);
+  border-radius: 999px;
+  padding: 0.75rem 1.6rem;
+  color: var(--pink);
+  font-family: var(--font-display);
+  font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+}
+
+.soon-wink {
+  display: block;
+  margin-top: 0.4rem;
+  color: rgba(168, 240, 198, 0.75);
+  font-size: 0.82rem;
+  font-style: italic;
+}
+
 .single__embed {
   margin-top: 2rem;
   max-width: 30rem;
