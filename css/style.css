@@ -407,10 +407,17 @@ html.lenis, html.lenis body { height: auto; }
   overflow: hidden;
   background: #0c0c0e;
 }
+/* every living photo shares one 3:4 frame; object-fit crops in the browser */
 .portrait img,
 .portrait .living { aspect-ratio: 3 / 4; object-fit: cover; width: 100%; height: auto; }
-.portrait--tall img,
-.portrait--tall .living { aspect-ratio: 2 / 3; }
+
+/* framing nudges so the uniform crop keeps her face composed */
+.photos__grid figure:nth-child(1) img,
+.photos__grid figure:nth-child(1) .living { object-position: 42% 50%; }  /* landscape silver: bias toward her face */
+.photos__grid figure:nth-child(2) img,
+.photos__grid figure:nth-child(2) .living { object-position: center 35%; }
+.photos__grid figure:nth-child(3) img,
+.photos__grid figure:nth-child(3) .living { object-position: center 30%; }
 
 @media (max-width: 640px) {
   .photos__grid { grid-template-columns: 1fr; }
