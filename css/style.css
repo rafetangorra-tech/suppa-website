@@ -496,6 +496,30 @@ html.lenis, html.lenis body { height: auto; }
   color: rgba(11, 11, 13, 0.5);
 }
 
+/* ---------- one display voice ----------
+   Every header-ish text speaks Unbounded, same as the SUPPA wordmark.
+   Sizes/tracking retuned because Unbounded runs much wider than Archivo. */
+
+.intro__eyebrow, .photos__eyebrow, .about__eyebrow, .writtenby__eyebrow,
+.booking__eyebrow, .single__copy [data-wtext="label"] {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+}
+
+.nav__links a, .btn-drip, .booking__socials a, .scroll-cue span {
+  font-family: var(--font-display);
+}
+
+.nav__links a { font-size: 0.6rem; letter-spacing: 0.1em; font-weight: 500; }
+.btn-drip { font-size: 0.7rem; letter-spacing: 0.08em; font-weight: 600; }
+.booking__socials a { font-size: 0.62rem; letter-spacing: 0.1em; }
+.scroll-cue { font-family: var(--font-display); font-size: 0.58rem; letter-spacing: 0.2em; }
+
+/* the email stays readable: smaller tracking, no caps */
+.booking__mail { font-size: 0.78rem; letter-spacing: 0.03em; font-weight: 500; }
+
 /* ---------- reduced motion ---------- */
 
 @media (prefers-reduced-motion: reduce) {

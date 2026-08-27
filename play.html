@@ -40,7 +40,8 @@
     }
     .nav a {
       color: var(--text); text-decoration: none;
-      font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase;
+      font-family: var(--font-display);
+      font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase;
       opacity: 0.8; transition: opacity 0.2s;
     }
     .nav a:hover { opacity: 1; }
@@ -52,8 +53,9 @@
     .head { text-align: center; flex: 0 0 auto; padding: 0 1rem; }
     .head p {
       color: var(--mint);
-      font-size: 0.66rem; font-weight: 700;
-      letter-spacing: 0.42em; text-transform: uppercase;
+      font-family: var(--font-display);
+      font-size: 0.58rem; font-weight: 600;
+      letter-spacing: 0.22em; text-transform: uppercase;
     }
     .head h1 {
       font-family: var(--font-display);
@@ -441,7 +443,9 @@
 
     function text(str, x, y, size, color, font, align) {
       ctx.fillStyle = color;
-      ctx.font = (font === 'd' ? '900 ' + size + 'px Unbounded' : '700 ' + size + 'px Archivo');
+      ctx.font = font === 'd' ? '900 ' + size + 'px Unbounded'
+               : font === 'u' ? '600 ' + size + 'px Unbounded'
+               : '700 ' + size + 'px Archivo';
       ctx.textAlign = align || 'center';
       ctx.fillText(str, x, y);
     }
@@ -489,7 +493,7 @@
         if (STATE === 'playing') crown(player.x, player.y, iframes > 0);
 
         /* HUD */
-        text('DRAMA PTS ' + score, 14, 28, 13, MINT, 's', 'left');
+        text('DRAMA PTS ' + score, 14, 28, 11, MINT, 'u', 'left');
         for (i = 0; i < 3; i++) heart(W - 22 - i * 22, 22, 1.35, i < lives ? PINK : 'rgba(255,255,255,0.12)');
         if (waveBanner > 0 && STATE === 'playing') {
           ctx.globalAlpha = Math.min(1, waveBanner);
