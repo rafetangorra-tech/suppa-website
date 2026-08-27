@@ -165,14 +165,20 @@
   // spacer — the rest of the pin is pure spin
   stl.to({ v: 0 }, { v: 1, duration: 0.4, ease: 'none' }, 0.6);
 
-  /* ---- Unpinned melt curtains: photos + booking melt in as they arrive ---- */
-  ['#photos', '#booking'].forEach(function (sel) {
-    var c = document.querySelector(sel + ' .melt-curtain');
+  /* ---- Unpinned melt curtains: photos + booking melt in as they arrive.
+     The last section can run out of scroll before its top nears the viewport
+     top, which would strand its curtain mid-melt — so booking's melt ends at
+     the page's maximum scroll instead of a trigger position. ---- */
+  [
+    { sel: '#photos', start: 'top 60%', end: 'top 2%' },
+    { sel: '#booking', start: 'top 85%', end: function () { return ScrollTrigger.maxScroll(window); } },
+  ].forEach(function (o) {
+    var c = document.querySelector(o.sel + ' .melt-curtain');
     if (!c) return;
     gsap.to(c, {
       yPercent: 130,
       ease: 'none',
-      scrollTrigger: { trigger: sel, start: 'top 60%', end: 'top 2%', scrub: 0.4 },
+      scrollTrigger: { trigger: o.sel, start: o.start, end: o.end, scrub: 0.4 },
     });
   });
 
