@@ -1,33 +1,57 @@
 # SUPPA — Drama Queen (artist site)
 
-Single-page artist website for SUPPA's debut single **Drama Queen**.
-Plain HTML/CSS/JS — no build step, no dependencies.
+Single-page artist site for SUPPA's debut single **Drama Queen** — a living,
+breathing scroll modeled on the [blanc](https://github.com/rafetangorra-tech/blanc)
+site's scroll grammar: Lenis smooth scroll wired into GSAP ScrollTrigger,
+pinned scrub sections, melt-curtain transitions with grown drip edges, and
+living-portrait video layers over every photo.
+
+Plain HTML/CSS/JS — no build step. GSAP + Lenis load from CDN.
 
 ## Structure
 
 ```
 index.html      the whole site
-css/style.css   dark chrome/red theme
-js/main.js      scroll-reveal + footer year
-assets/         web-optimized cover + gallery images
+css/style.css   dark chrome/red theme + scroll-engine base states
+js/main.js      the scroll engine (Lenis + GSAP), drip-edge generator,
+                lazy living-media loader
+assets/         web-optimized stills (.jpg) + living-portrait loops (.mp4)
 ```
+
+## The scroll, section by section
+
+1. **Intro (pinned)** — giant chrome SUPPA wordmark behind the living cover;
+   scrolling spreads and fades the wordmark while the cover breathes forward.
+2. **The single (pinned)** — the intro's black melts down and away (drip edge
+   trailing); label → title → blurb → CTAs mix in channel by channel, scrubbed
+   both ways. A record spins with the cover as its label.
+3. **Photos** — living portraits: each still carries a subtle looping video
+   that plays only in view; frames arrive oversized and drained, flooding to
+   color as they settle. Parallax via `data-speed`.
+4. **About / Booking** — reversible reveals; booking melts in on the
+   jumpsuit red.
+
+Living media degrades gracefully: every video sits over its own poster still,
+loads lazily (`data-src`), and removes itself on error — no JS, reduced
+motion, or a missing file all fall back to the photograph.
 
 ## Before going live
 
 Search `index.html` for `TODO`:
 
 - Replace the `#` streaming links (Spotify / Apple Music / YouTube)
-- Paste the streaming embed into the Listen section
+- Paste the streaming embed into the single section
 - Replace the placeholder bio and booking email
 - Add real social profile links
 
 ## Publish with GitHub Pages
 
 Repo → Settings → Pages → Deploy from branch → `main` / root.
-The site is static, so it works on Pages as-is. (Repo is private by default;
-Pages on a private repo requires making the repo public or a paid plan.)
+(Repo is private by default; Pages on a private repo requires making the
+repo public or a paid plan.)
 
-## Updating images
+## Regenerating assets
 
-Full-resolution originals live in the Suppa Shoot archive; these copies are
-web-optimized JPEGs (~1600px cover, ~1200px gallery).
+Full-resolution originals live in the Suppa Shoot archive. Stills are
+web-optimized JPEGs; the `.mp4` loops are 5-second Seedance 2.0
+living-portrait renders (subtle idle motion, locked camera, silent).
