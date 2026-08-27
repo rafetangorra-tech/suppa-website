@@ -1,0 +1,289 @@
+/* ---------- SUPPA — Drama Queen ---------- */
+
+:root {
+  --bg: #0b0b0d;
+  --panel: #141417;
+  --text: #f2f2f4;
+  --muted: #9a9aa2;
+  --red: #e8432d;          /* the jumpsuit red */
+  --red-deep: #b52a19;
+  --chrome-hi: #ffffff;
+  --chrome-mid: #b9bcc4;
+  --chrome-lo: #63666e;
+  --max: 1120px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Archivo", system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+/* chrome text treatment, echoing the cover lettering */
+.chrome-text,
+.hero__title,
+.nav__logo,
+.section-title,
+.footer__title {
+  font-family: "Unbounded", "Archivo", sans-serif;
+  background: linear-gradient(180deg,
+    var(--chrome-hi) 0%, var(--chrome-mid) 35%,
+    var(--chrome-lo) 50%, var(--chrome-mid) 62%,
+    var(--chrome-hi) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ---------- nav ---------- */
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem clamp(1rem, 4vw, 2.5rem);
+  background: color-mix(in srgb, var(--bg) 82%, transparent);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #1e1e22;
+}
+
+.nav__logo {
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-decoration: none;
+}
+
+.nav__links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  margin-left: clamp(0.8rem, 2.5vw, 1.8rem);
+  transition: color 0.2s;
+}
+
+.nav__links a:hover { color: var(--text); }
+
+/* ---------- hero ---------- */
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 520px) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: center;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: clamp(3rem, 8vh, 6rem) clamp(1rem, 4vw, 2.5rem);
+}
+
+.hero__art img {
+  border-radius: 10px;
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.55),
+    0 0 0 1px #26262b,
+    0 0 120px rgba(232, 67, 45, 0.12);
+}
+
+.hero__eyebrow {
+  color: var(--red);
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  margin-bottom: 0.9rem;
+}
+
+.hero__title {
+  font-size: clamp(3rem, 7.5vw, 5.5rem);
+  font-weight: 800;
+  line-height: 1.02;
+  margin-bottom: 1.1rem;
+}
+
+.hero__sub {
+  color: var(--muted);
+  font-size: 1.05rem;
+  margin-bottom: 1.8rem;
+}
+
+.hero__actions { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+
+.btn {
+  display: inline-block;
+  padding: 0.78rem 1.6rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.92rem;
+  letter-spacing: 0.05em;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s;
+}
+
+.btn--chrome {
+  color: #0d0d0f;
+  background: linear-gradient(180deg, #ffffff, #c9ccd3 45%, #8d9098 55%, #e8eaee);
+  box-shadow: inset 0 1px 0 #fff, 0 6px 18px rgba(0, 0, 0, 0.45);
+}
+
+.btn--outline {
+  color: var(--text);
+  border: 1px solid #3a3a40;
+}
+
+.btn:hover { transform: translateY(-2px); }
+.btn--outline:hover { border-color: var(--red); color: var(--red); }
+
+/* ---------- sections ---------- */
+
+.section-title {
+  font-size: clamp(1.6rem, 3.4vw, 2.4rem);
+  font-weight: 800;
+  margin-bottom: clamp(1.4rem, 3vw, 2.2rem);
+}
+
+.listen, .gallery, .about {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: clamp(2.5rem, 7vh, 5rem) clamp(1rem, 4vw, 2.5rem);
+}
+
+/* listen */
+
+.listen__placeholder {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  background: var(--panel);
+  border: 1px dashed #2c2c31;
+  border-radius: 12px;
+  padding: 1.6rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.listen__disc {
+  flex: 0 0 auto;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at center, var(--red) 0 18%, transparent 19%),
+    conic-gradient(#2e2e33, #57575e, #2e2e33, #57575e, #2e2e33);
+  animation: spin 6s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* gallery */
+
+.gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: clamp(0.8rem, 2vw, 1.4rem);
+}
+
+.gallery__grid figure {
+  overflow: hidden;
+  border-radius: 10px;
+  background: var(--panel);
+}
+
+.gallery__grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 3 / 4;
+  transition: transform 0.5s ease;
+}
+
+.gallery__grid figure:hover img { transform: scale(1.04); }
+
+/* about */
+
+.about__body {
+  max-width: 640px;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.about__body p + p { margin-top: 1rem; }
+.about__body em { color: var(--text); font-style: italic; }
+
+/* ---------- footer ---------- */
+
+.footer {
+  border-top: 1px solid #1e1e22;
+  text-align: center;
+  padding: clamp(3rem, 8vh, 5rem) 1.5rem 2.5rem;
+  background:
+    radial-gradient(60% 120% at 50% 100%, rgba(232, 67, 45, 0.10), transparent 70%),
+    var(--bg);
+}
+
+.footer__title { font-size: clamp(1.5rem, 3vw, 2.1rem); margin-bottom: 1rem; }
+
+.footer__mail {
+  display: inline-block;
+  color: var(--red);
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  margin-bottom: 1.6rem;
+}
+
+.footer__mail:hover { text-decoration: underline; }
+
+.footer__socials { display: flex; justify-content: center; gap: 1.6rem; margin-bottom: 2.2rem; }
+
+.footer__socials a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.92rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.footer__socials a:hover { color: var(--text); }
+
+.footer__fine { color: #5b5b62; font-size: 0.8rem; }
+
+/* ---------- reveal animation ---------- */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.is-visible { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .listen__disc { animation: none; }
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 860px) {
+  .hero { grid-template-columns: 1fr; text-align: center; }
+  .hero__art { max-width: 440px; margin: 0 auto; }
+  .hero__actions { justify-content: center; }
+}
+
+@media (max-width: 520px) {
+  .nav__links a { margin-left: 0.7rem; font-size: 0.8rem; }
+}

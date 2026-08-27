@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SUPPA — Drama Queen</title>
+  <meta name="description" content="SUPPA — Drama Queen. The new single, out now. Photos, music, and booking.">
+
+  <!-- Open Graph / social cards -->
+  <meta property="og:title" content="SUPPA — Drama Queen">
+  <meta property="og:description" content="The new single from SUPPA. Out now.">
+  <meta property="og:image" content="assets/cover.jpg">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Archivo:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="nav">
+    <a class="nav__logo" href="#top">SUPPA</a>
+    <nav class="nav__links">
+      <a href="#listen">Listen</a>
+      <a href="#gallery">Photos</a>
+      <a href="#about">About</a>
+      <a href="#booking">Booking</a>
+    </nav>
+  </header>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero__art reveal">
+        <img src="assets/cover.jpg" alt="Drama Queen — album artwork: SUPPA in a red satin jumpsuit and sheer red gloves, hands over her mouth, liquid chrome lettering" width="1600" height="1600">
+      </div>
+      <div class="hero__copy reveal">
+        <p class="hero__eyebrow">The debut single</p>
+        <h1 class="hero__title">Drama<br>Queen</h1>
+        <p class="hero__sub">Out now on all platforms.</p>
+        <div class="hero__actions">
+          <!-- TODO: replace # with real streaming URLs -->
+          <a class="btn btn--chrome" href="#" aria-label="Listen on Spotify">Spotify</a>
+          <a class="btn btn--chrome" href="#" aria-label="Listen on Apple Music">Apple Music</a>
+          <a class="btn btn--outline" href="#" aria-label="Watch on YouTube">YouTube</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- LISTEN -->
+    <section class="listen" id="listen">
+      <h2 class="section-title reveal">Listen</h2>
+      <div class="listen__embed reveal">
+        <!-- TODO: paste the Spotify embed iframe here once the single is live, e.g.
+        <iframe src="https://open.spotify.com/embed/track/TRACK_ID" width="100%" height="152"
+                frameborder="0" allow="encrypted-media" loading="lazy"></iframe>
+        -->
+        <div class="listen__placeholder">
+          <span class="listen__disc" aria-hidden="true"></span>
+          <p>Streaming embed goes here — drop in the Spotify/Apple embed when the single is live.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="gallery" id="gallery">
+      <h2 class="section-title reveal">Photos</h2>
+      <div class="gallery__grid">
+        <figure class="reveal"><img src="assets/gallery-silver.jpg" alt="SUPPA in a black denim jacket against a grey studio wall" loading="lazy"></figure>
+        <figure class="reveal"><img src="assets/gallery-teal.jpg" alt="SUPPA seated on a stool in front of a teal velvet curtain" loading="lazy"></figure>
+        <figure class="reveal"><img src="assets/gallery-rose.jpg" alt="SUPPA in red against a pink backdrop" loading="lazy"></figure>
+        <figure class="reveal"><img src="assets/gallery-mint.jpg" alt="SUPPA in a black turtleneck with fur cuffs in a mint-green room" loading="lazy"></figure>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+      <h2 class="section-title reveal">About</h2>
+      <div class="about__body reveal">
+        <!-- TODO: replace with the real bio -->
+        <p>SUPPA is a pop artist with a taste for high drama and higher gloss. Her debut single
+        <em>Drama Queen</em> pairs bubblegum hooks with liquid-chrome attitude.</p>
+        <p>Press kit and hi-res photos available on request.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- BOOKING / FOOTER -->
+  <footer class="footer" id="booking">
+    <h2 class="footer__title reveal">Booking &amp; Contact</h2>
+    <!-- TODO: replace with the real contact address -->
+    <a class="footer__mail reveal" href="mailto:booking@example.com">booking@example.com</a>
+    <div class="footer__socials reveal">
+      <!-- TODO: replace # with real profiles -->
+      <a href="#">Instagram</a>
+      <a href="#">TikTok</a>
+      <a href="#">YouTube</a>
+    </div>
+    <p class="footer__fine">&copy; <span id="year"></span> SUPPA. All rights reserved.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
