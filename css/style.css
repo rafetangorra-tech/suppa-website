@@ -417,7 +417,7 @@ html.lenis, html.lenis body { height: auto; }
   max-width: 1120px;
   margin: 0 auto;
   display: grid; gap: clamp(1rem, 3vw, 2rem);
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr); /* three portraits, one row */
 }
 
 .portrait {
@@ -435,8 +435,6 @@ html.lenis, html.lenis body { height: auto; }
 .photos__grid figure:nth-child(1) .living { object-position: 42% 50%; }  /* landscape silver: bias toward her face */
 .photos__grid figure:nth-child(2) img,
 .photos__grid figure:nth-child(2) .living { object-position: center 35%; }
-.photos__grid figure:nth-child(3) img,
-.photos__grid figure:nth-child(3) .living { object-position: center 30%; }
 
 @media (max-width: 640px) {
   .photos__grid { grid-template-columns: 1fr; }
