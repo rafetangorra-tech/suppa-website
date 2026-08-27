@@ -49,6 +49,7 @@ html.lenis, html.lenis body { height: auto; }
 #wordmark span,
 .single__copy h2,
 .photos__head h2,
+#writtenby h2,
 #about h2 {
   color: var(--pink);
 }
@@ -331,6 +332,42 @@ html.lenis, html.lenis body { height: auto; }
   .single__grid { grid-template-columns: 1fr; }
   .single__disc-wrap { order: -1; }
   .single__disc { width: min(240px, 62vw); }
+}
+
+/* ---------- behind the song ---------- */
+
+#writtenby {
+  background: var(--canvas);
+  padding: clamp(5rem, 12vh, 8rem) clamp(1.2rem, 5vw, 3rem);
+}
+
+#writtenby > *, #writtenby .writtenby__body { max-width: 1120px; margin-inline: auto; }
+
+.writtenby__eyebrow {
+  margin: 0 0 1rem;
+  color: var(--mint);
+  font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.4em; text-transform: uppercase;
+}
+
+#writtenby h2 {
+  font-size: clamp(2.2rem, 5.5vw, 4rem);
+  line-height: 1.02;
+  text-transform: uppercase;
+}
+
+.writtenby__body { margin-top: 1.8rem; max-width: 40rem; color: var(--muted); font-size: 1.08rem; }
+.writtenby__body p { margin: 0 0 1rem; }
+.writtenby__body em { color: var(--text); }
+.writtenby__body a:not(.btn-drip) {
+  color: var(--mint);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.writtenby__cta {
+  margin-top: 1rem;
+  border-color: rgba(168, 240, 198, 0.55);
 }
 
 /* ---------- photos (living portraits) ---------- */

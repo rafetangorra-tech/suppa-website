@@ -25,11 +25,13 @@ assets/         web-optimized stills (.jpg) + living-portrait loops (.mp4)
 2. **The single (pinned)** — the intro's black melts down and away (drip edge
    trailing); label → title → blurb → CTAs mix in channel by channel, scrubbed
    both ways. A record spins with the cover as its label.
-3. **Photos** — living portraits: each still carries a subtle looping video
+3. **Behind the song** — the writing credit: Drama Queen was written by the
+   [blanc](https://rafetangorra-tech.github.io/blanc/) collective, with more
+   SUPPA × blanc music to come.
+4. **Photos ("In motion")** — living portraits: each still carries a subtle looping video
    that plays only in view; frames arrive oversized and drained, flooding to
    color as they settle. Parallax via `data-speed`.
-4. **About / Booking** — reversible reveals; booking melts in on the
-   jumpsuit red.
+5. **About / Booking** — reversible reveals; booking melts in on hot pink.
 
 Living media degrades gracefully: every video sits over its own poster still,
 loads lazily (`data-src`), and removes itself on error — no JS, reduced

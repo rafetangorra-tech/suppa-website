@@ -204,7 +204,7 @@
   });
 
   /* ---- Section reveals — reversible ---- */
-  ['#photos', '#about', '#booking'].forEach(function (sel) {
+  ['#writtenby', '#photos', '#about', '#booking'].forEach(function (sel) {
     gsap.to(sel + ' .reveal', {
       opacity: 1, y: 0, duration: 1, ease: 'power3.out', stagger: 0.08,
       scrollTrigger: { trigger: sel, start: 'top 72%', toggleActions: 'play none none reverse' },
