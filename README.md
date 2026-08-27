@@ -53,8 +53,7 @@ Search `index.html` for `TODO`:
 
 - Replace the `#` streaming links (Spotify / Apple Music / YouTube)
 - Paste the streaming embed into the single section
-- Replace the placeholder bio and booking email
-- Add real social profile links
+- Add real TikTok / YouTube profile links (Instagram is live)
 
 ## Publish with GitHub Pages
 
