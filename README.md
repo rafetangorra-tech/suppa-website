@@ -26,7 +26,7 @@ assets/         web-optimized stills (.jpg) + living-portrait loops (.mp4)
    trailing); label → title → blurb → CTAs mix in channel by channel, scrubbed
    both ways. A record spins with the cover as its label.
 3. **Behind the song** — the writing credit: Drama Queen was written by the
-   [blanc](https://rafetangorra-tech.github.io/blanc/) collective, with more
+   [blanc](https://www.songsbyblanc.com/) collective, with more
    SUPPA × blanc music to come.
 4. **Photos ("In motion")** — living portraits: each still carries a subtle looping video
    that plays only in view; frames arrive oversized and drained, flooding to
